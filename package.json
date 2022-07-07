@@ -4,7 +4,7 @@
   "description": "A tutorial on session based user authentication using Passport JS",
   "main": "app.js",
   "scripts": {
-    "start": "node index"
+    "start": "node app"
   },
   "keywords": [],
   "author": "",
