@@ -34,7 +34,7 @@ app.use(express.urlencoded({extended: true}));
  * DB_STRING=mongodb://<user>:<password>@localhost:27017/database_name
  */ 
 
-const conn = process.env.DB_STRING;
+const conn = "mongodb+srv://vincentonepointone:ytrewq132@cluster0.g3er2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 const connection = mongoose.createConnection(conn, {
     useNewUrlParser: true,
@@ -154,7 +154,7 @@ const sessionStore = new MongoStore({ mongooseConnection: connection, collection
  */
 app.use(session({
     //secret: process.env.SECRET,
-    secret: 'some secret',
+    secret: 'AKIA4MQP2Q7N3N4CROHU',
     resave: false,
     saveUninitialized: true,
     store: sessionStore,
