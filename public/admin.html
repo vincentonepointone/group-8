@@ -42,18 +42,19 @@
               <label for="username" class="form-label">Naam</label>
               <input type="text" class="form-control" id="wagnaamInput" name="wagnaam">
           </div>
-        
-          <select class="form-select mb-3" aria-label="Default select example" name="wagKleur">
-            <option selected>Kleur</option>
+          
+          <select class="form-select mb-3" aria-label="Default select example" name="wagKleur" id="wagKleurSelect">
+          <option selected>Kleur</option>
             <option value="bg-primary" class="bg-primary">Blou</option>
             <option value="bg-success"class="bg-success">Groen</option>
+         .
             <option value="bg-secondary"class="bg-secondary">Grys</option>
             <option value="bg-danger"class="bg-danger">Rooi</option>
             <option value="bg-warning"class="bg-warning">Geel</option>
             <option value="bg-info"class="bg-info">Babba Blou</option>
             <option value="bg-dark text-light"class="bg-dark text-light">Swart</option>
           </select>
-          <button type="submit" class="btn btn-primary mb-3 ">Add</button>        
+          <button type="submit" class="btn btn-primary mb-3 " id="addWagButton">Add</button>        
       </div>
 
       <div class="wagte-display w-auto">
