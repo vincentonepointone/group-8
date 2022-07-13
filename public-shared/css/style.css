@@ -1,3 +1,7 @@
+body {
+
+  box-sizing: border-box;
+}
 .calendar-parent {
   width: 100vw ;
 }
@@ -39,19 +43,20 @@ display: flex;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  height:70vh;
+  grid-template-rows:  repeat(6, 1fr) ;
 }
 /* .day-number-square {
   background-color: red;
 } */
 .day {
-  height: 12vh;
   cursor: pointer;
   box-sizing: border-box;
   background-color: white;
+  height: 100%;
   box-shadow: 0px 0px 3px #CBD4C2;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .day:hover {
   background-color: #e8faed;
@@ -66,9 +71,8 @@ display: flex;
   margin:0;
 }
 .event {
-  font-size: 8px;
+  font-size: 7px;
   border-radius: 5px;
-  max-height: 55px;
   overflow: hidden;
   font-weight:800;
 }
@@ -120,4 +124,11 @@ display: flex;
 .waglist-name {
   margin: 0;
   font-size: 14px;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .event {
+    font-size: 10px;
+  }
 }
