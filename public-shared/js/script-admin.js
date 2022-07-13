@@ -1,15 +1,111 @@
-
-
+window.addEventListener('DOMContentLoaded', (event) => {
 let nav = 0;
 let clicked = null;
 let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
-
 const calendar = document.getElementById('calendar');
 const newEventModal = document.getElementById('newEventModal');
 const deleteEventModal = document.getElementById('deleteEventModal');
 const backDrop = document.getElementById('modalBackDrop');
 const eventTitleInput = document.getElementById('eventTitleInput');
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const addWagButton = document.getElementById('addWagButton');
+const wagKleurSelectValue = document.getElementById('wagKleurSelect').value;
+console.log(localStorage.getItem('nav'))
+if(!localStorage.getItem('nav')) {
+  localStorage.setItem('nav', 0)
+} else {
+  console.log(parseInt(localStorage.getItem('nav'), 10))
+  nav = parseInt(localStorage.getItem('nav'), 10);
+}
+function loadWagteList() {
+  fetch('/wagte')
+  .then(response => response.json())
+  .then(data => {
+    const wagList = document.createElement('ul');
+    wagList.classList.add('list-group');
+    wagList.classList.add('mb-4');
+    
+    data.forEach(element => {
+      const wagDeleteButton = document.createElement('button');
+      wagDeleteButton.classList.add('btn', 'btn-outline-danger');
+      wagDeleteButton.setAttribute('id','wag-delete-button')
+      wagDeleteButton.setAttribute('type', 'button');
+      wagDeleteButton.innerText = "X";
+      wagDeleteButton.addEventListener('click', deleteWag);
+      wagDeleteButton.setAttribute('value', element.wagname)
+      let listItem = document.createElement('li');
+      listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between');
+      const ptag = document.createElement('p');
+      ptag.innerText = element.wagname;
+      ptag.classList.add('waglist-name')
+      listItem.appendChild(ptag);
+      listItem.appendChild(wagDeleteButton);
+      wagList.appendChild(listItem)
+    });
+      document.querySelector('.wagte-display').innerHTML = "";
+      document.querySelector('.wagte-display').append(wagList)
+  })
+
+  let deleteWag = (e) => {
+      const data = { wagnaam: e.target.value};
+      console.log(data)
+      
+      fetch('/deleteWag', {
+          method: 'POST', // or 'PUT'
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+        .then(response => response)
+        .then(data => {
+          loadWagteList();
+          console.log('Success:', data);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+  }
+}
+loadWagteList();
+
+
+//Adding Wagte Upload From spa modding 
+addWagButton.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const wagKleurSelectValue = document.getElementById('wagKleurSelect').value;
+  const wagnaamInputvalue = document.getElementById('wagnaamInput').value;
+  if(wagKleurSelectValue == "Kleur" || wagnaamInputvalue == "") {
+    const wagteAddForm = document.querySelector('.wagte-add-form');
+    console.log(wagteAddForm)
+    wagteAddFormErrorMessage = document.createElement('h6');
+    wagteAddFormErrorMessage.innerText = "Choose a Color and add a name";
+    wagteAddFormErrorMessage.classList.add('bg-warning');
+    wagteAddForm.append(wagteAddFormErrorMessage)
+  } else {
+    console.log(wagKleurSelectValue, wagnaamInputvalue);
+    const data = { 
+      wagnaam: wagnaamInputvalue,
+      wagKleur: wagKleurSelectValue,
+    };
+    fetch('/newWag', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then(response => response)
+    .then(data => {
+      loadWagteList();
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });    
+  }
+})
 
 function openModal(date) {
   clicked = date;
@@ -232,11 +328,14 @@ function deleteEvent(e) {
 function initButtons() {
   document.getElementById('nextButton').addEventListener('click', () => {
     nav++;
+    console.log(nav)
+    localStorage.setItem('nav', nav);
     load();
   });
 
   document.getElementById('backButton').addEventListener('click', () => {
     nav--;
+    localStorage.setItem('nav', nav);
     load();
   });
 
@@ -248,3 +347,4 @@ function initButtons() {
 
 initButtons();
 load();
+});
