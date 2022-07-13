@@ -322,7 +322,9 @@ app.post('/deleteWag', (req, res, next) => {
   if(err) console.log(err);
   console.log("Successful deletion");
 });
-    res.redirect('#');
+    res.json({
+        good: "good"
+    });
 
 });
 
