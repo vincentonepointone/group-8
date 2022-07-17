@@ -72,10 +72,20 @@ display: flex;
 }
 .event {
   font-size: 7px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   overflow: hidden;
   font-weight:800;
+  text-align: center;
 }
+
+/* .offShiftDiv {
+  display: none;
+} */
+/* Class a names not all added in cript-Admin .js */
+.nightShiftPtag, .dayShiftPtag, .offShiftPtag, .errShiftPtag{
+  margin: 0;
+}
+
 .padding {
   cursor: default !important;
   background-color: #FFFCFF !important;
@@ -130,5 +140,9 @@ display: flex;
   /* For tablets: */
   .event {
     font-size: 10px;
+  }
+  .nightShiftPtag, .dayShiftPtag, .offShiftPtag, .errShiftPtag{
+    font-size: 2px;
+    display: none;
   }
 }
