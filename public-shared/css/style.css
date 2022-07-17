@@ -72,7 +72,7 @@ display: flex;
 }
 .event {
   font-size: 7px;
-  /* border-radius: 5px; */
+  border-radius: 5px;
   overflow: hidden;
   font-weight:800;
   text-align: center;
