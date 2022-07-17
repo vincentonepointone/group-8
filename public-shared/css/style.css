@@ -78,12 +78,14 @@ display: flex;
   text-align: center;
 }
 
-/* .offShiftDiv {
-  display: none;
-} */
-/* Class a names not all added in cript-Admin .js */
-.nightShiftPtag, .dayShiftPtag, .offShiftPtag, .errShiftPtag{
-  margin: 0;
+.off-Icon svg.bi.bi-house-heart, .day-Icon svg.bi.bi-sun, .night-Icon svg.bi.bi-moon-fill, .err-Icon{
+  width: 12px !important; 
+  height: 12px !important;
+  display: block;
+}
+
+.off-Icon, .day-Icon, .night-Icon, .err-Icon{
+  padding: 5px 0 0 0;
 }
 
 .padding {
@@ -99,9 +101,9 @@ display: flex;
   box-shadow: 0px 0px 3px black;
   border-radius: 5px;
   width: 350px;
-  top: 330px;
+  top: 33px;
   left: calc(50% - 175px);
-  position: absolute;
+  position: fixed;
   font-family: sans-serif;
 }
 #eventTitleInput {
@@ -141,8 +143,9 @@ display: flex;
   .event {
     font-size: 10px;
   }
-  .nightShiftPtag, .dayShiftPtag, .offShiftPtag, .errShiftPtag{
-    font-size: 2px;
-    display: none;
+  .off-Icon svg.bi.bi-house-heart, .day-Icon svg.bi.bi-sun, .night-Icon svg.bi.bi-moon-fill, .err-Icon{
+    width: 16px !important; 
+    height: 16px !important;
   }
+
 }
