@@ -117,7 +117,6 @@ function load() {
           const myArray = eventForDay.wagte[key].split(",");
           eventDiv.classList.add('event',myArray[1]);
           eventDiv.innerText = `${key}`;
-          console.log(myArray[0])
           switch (myArray[0]) {
             case "Dag":
               dayNamesDiv.append(eventDiv);

@@ -1,0 +1,169 @@
+[{
+  "_id": {
+    "$oid": "62c638fd643183063091c2d9"
+  },
+  "date": "7/1/2022",
+  "wagte": {
+    "Vincent": "Dag,bg-primary",
+    "Jacques": "Off,bg-success",
+    "Ryno": "Off,bg-secondary",
+    "Biemie": "Nag,bg-danger",
+    "Hanrich": "Dag,bg-warning",
+    "Leon": "Nag,bg-info"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c63920643183063091c2e8"
+  },
+  "date": "7/2/2022",
+  "wagte": {
+    "Vincent": "Off,bg-primary",
+    "Jacques": "Dag,bg-success",
+    "Ryno": "Dag,bg-secondary",
+    "Biemie": "Nag,bg-danger",
+    "Hanrich": "Off,bg-warning",
+    "Leon": "Nag,bg-info"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c6393b643183063091c2f7"
+  },
+  "date": "7/3/2022",
+  "wagte": {
+    "Vincent": "Nag,bg-primary",
+    "Jacques": "Dag,bg-success",
+    "Ryno": "Dag,bg-secondary",
+    "Biemie": "Off,bg-danger",
+    "Hanrich": "Nag,bg-warning",
+    "Leon": "Off,bg-info"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c6396f643183063091c306"
+  },
+  "date": "7/4/2022",
+  "wagte": {
+    "Vincent": "Nag,bg-primary",
+    "Jacques": "Off,bg-success",
+    "Ryno": "Off,bg-secondary",
+    "Biemie": "Dag,bg-danger",
+    "Hanrich": "Nag,bg-warning",
+    "Leon": "Dag,bg-info"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c63991643183063091c315"
+  },
+  "date": "7/5/2022",
+  "wagte": {
+    "Vincent": "Off,bg-primary",
+    "Jacques": "Nag,bg-success",
+    "Ryno": "Nag,bg-secondary",
+    "Biemie": "Dag,bg-danger",
+    "Hanrich": "Off,bg-warning",
+    "Leon": "Dag,bg-info"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c639b2643183063091c324"
+  },
+  "date": "7/6/2022",
+  "wagte": {
+    "Vincent": "Dag,bg-primary",
+    "Jacques": "Nag,bg-success",
+    "Ryno": "Nag,bg-secondary",
+    "Biemie": "Off,bg-danger",
+    "Hanrich": "Dag,bg-warning",
+    "Leon": "Off,bg-info"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c639cb643183063091c333"
+  },
+  "date": "7/7/2022",
+  "wagte": {
+    "Vincent": "Dag,bg-primary",
+    "Jacques": "Off,bg-success",
+    "Ryno": "Off,bg-secondary",
+    "Biemie": "Nag,bg-danger",
+    "Hanrich": "Dag,bg-warning",
+    "Leon": "Nag,bg-info"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c639f8643183063091c342"
+  },
+  "date": "7/8/2022",
+  "wagte": {
+    "Vincent": "Off,bg-primary",
+    "Jacques": "Dag,bg-success",
+    "Ryno": "Dag,bg-secondary",
+    "Biemie": "Nag,bg-danger",
+    "Hanrich": "Off,bg-warning",
+    "Leon": "Nag,bg-info"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c63a22643183063091c34f"
+  },
+  "date": "7/9/2022",
+  "wagte": {
+    "Vincent": "Nag,bg-primary",
+    "Jacques": "Dag,bg-success",
+    "Ryno": "Dag,bg-secondary",
+    "Biemie": "Off,bg-danger",
+    "Hanrich": "Nag,bg-warning",
+    "Leon": "Off,bg-info"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c63a40643183063091c360"
+  },
+  "date": "7/10/2022",
+  "wagte": {
+    "Vincent": "Nag,bg-primary",
+    "Jacques": "Off,bg-success",
+    "Ryno": "Off,bg-secondary",
+    "Biemie": "Dag,bg-danger",
+    "Hanrich": "Nag,bg-warning",
+    "Leon": "Dag,bg-info"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c63a5d643183063091c36f"
+  },
+  "date": "7/11/2022",
+  "wagte": {
+    "Vincent": "Off,bg-primary",
+    "Jacques": "Nag,bg-success",
+    "Ryno": "Nag,bg-secondary",
+    "Biemie": "Dag,bg-danger",
+    "Hanrich": "Off,bg-warning",
+    "Leon": "Dag,bg-info"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c63bd3643183063091c3dd"
+  },
+  "date": "7/12/2022",
+  "wagte": {
+    "Vincent": "Dag,bg-primary",
+    "Jacques": "Nag,bg-success",
+    "Ryno": "Nag,bg-secondary",
+    "Biemie": "Off,bg-danger",
+    "Hanrich": "Dag,bg-warning",
+    "Leon": "Off,bg-info"
+  },
+  "__v": 0
+}]

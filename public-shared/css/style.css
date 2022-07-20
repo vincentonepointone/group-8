@@ -4,6 +4,7 @@ body {
 }
 .calendar-parent {
   width: 100vw ;
+  background-color: transparent;
 }
 #header {
   padding: 10px;

@@ -1,0 +1,43 @@
+[{
+  "_id": {
+    "$oid": "62c2d14c14283c1b18211d1c"
+  },
+  "wagname": "Vincent",
+  "wagkleur": "bg-primary",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c2d15414283c1b18211d25"
+  },
+  "wagname": "Jacques",
+  "wagkleur": "bg-success",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c2d16014283c1b18211d2e"
+  },
+  "wagname": "Ryno",
+  "wagkleur": "bg-secondary",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c2d16714283c1b18211d37"
+  },
+  "wagname": "Biemie",
+  "wagkleur": "bg-danger",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c2d17a14283c1b18211d40"
+  },
+  "wagname": "Hanrich",
+  "wagkleur": "bg-warning",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62c2d1ba14283c1b18211d49"
+  },
+  "wagname": "Leon",
+  "wagkleur": "bg-info",
+  "__v": 0
+}]
