@@ -25,9 +25,9 @@ li, .list-group-item {
   padding-right: 8px;
   margin-left: 7px;
 }
-.next-button-container{
+/* .next-button-container{
 display: flex;
-}
+} */
 #calendar-container {
   width: 100%;
 }
