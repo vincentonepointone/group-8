@@ -67,6 +67,26 @@ display: flex;
   background-color:#e8f4fa;
 }
 
+.day + #currentDay p::after{
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  -moz-border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  border-radius: 7.5px;
+  border: solid gray 1px;
+  background-color: rgb(11, 163, 11);
+  margin-left: 3px;
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
 .day-numbers{
   font-size:7px;
   margin:0;
@@ -150,5 +170,9 @@ display: flex;
   }
   .day-numbers{
     font-size:12px;
+  }
+  .day + #currentDay p::after{
+    width: 10px;
+    height: 10px;
   }
 }
