@@ -10,11 +10,10 @@ const eventTitleInput = document.getElementById('eventTitleInput');
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const addWagButton = document.getElementById('addWagButton');
 const wagKleurSelectValue = document.getElementById('wagKleurSelect').value;
-console.log(localStorage.getItem('nav'))
+
 if(!localStorage.getItem('nav')) {
   localStorage.setItem('nav', 0)
 } else {
-  console.log(parseInt(localStorage.getItem('nav'), 10))
   nav = parseInt(localStorage.getItem('nav'), 10);
 }
 function loadWagteList() {
@@ -48,8 +47,6 @@ function loadWagteList() {
 
   let deleteWag = (e) => {
       const data = { wagnaam: e.target.value};
-      console.log(data)
-      
       fetch('/deleteWag', {
           method: 'POST', // or 'PUT'
           headers: {
@@ -78,13 +75,12 @@ addWagButton.addEventListener('click', (e) => {
   const wagnaamInputvalue = document.getElementById('wagnaamInput').value;
   if(wagKleurSelectValue == "Kleur" || wagnaamInputvalue == "") {
     const wagteAddForm = document.querySelector('.wagte-add-form');
-    console.log(wagteAddForm)
+
     wagteAddFormErrorMessage = document.createElement('h6');
     wagteAddFormErrorMessage.innerText = "Choose a Color and add a name";
     wagteAddFormErrorMessage.classList.add('bg-warning');
     wagteAddForm.append(wagteAddFormErrorMessage)
   } else {
-    console.log(wagKleurSelectValue, wagnaamInputvalue);
     const data = { 
       wagnaam: wagnaamInputvalue,
       wagKleur: wagKleurSelectValue,
@@ -99,6 +95,7 @@ addWagButton.addEventListener('click', (e) => {
     .then(response => response)
     .then(data => {
       loadWagteList();
+      getWagte();
       console.log('Success:', data);
     })
     .catch((error) => {
@@ -107,35 +104,69 @@ addWagButton.addEventListener('click', (e) => {
   }
 })
 
-function openModal(date) {
+
+function getWagte(){
+  fetch('/wagte')
+    .then(response => response.json())
+    .then(data => {
+
+      console.log(data,'getwagfunction')
+      localStorage.setItem('wagte', JSON. stringify(data))
+    })
+}
+
+getWagte();
+
+function openModal(date,e,el) {
+  console.log(e.target.previousSibling)
   clicked = date;
   // const eventForDay = events.find(e => e.date === clicked);
   fetch('/getDays')
   .then(response => response.json())
   .then(data => {
     var shifts = data;
-    console.log(data)
+    console.log(clicked)
     const eventForDay = shifts.find(e => e.date === clicked);
     
-    console.log()
-    
-      if (eventForDay) {
-        document.getElementById('deleteEventModalHeading').innerText = date;
+    const clickedDayArray = clicked.split("/");
+    const previousDay = `${clickedDayArray[0]}/${clickedDayArray[1] -1}/${clickedDayArray[2]}`;
+   const previousNightShiftGuards = shifts.find(e => e.date === previousDay);
+   const disableGuard = [];
+   if(previousNightShiftGuards){
+        
+      for (const key in previousNightShiftGuards.wagte) {
+      previousNightShiftGuards.wagte[key]
+      if (previousNightShiftGuards.wagte[key].includes('Nag')) {
+          disableGuard.push(key)
+      }   
+   }
+
+}
+
+ 
+  if (eventForDay) {
+    document.getElementById('deleteEventModalHeading').innerText = date;
     deleteEventModal.style.display = 'block';
   } else {
     document.getElementById('newEventModalHeading').innerText = date;
     newEventModal.style.display = 'block';
-    fetch('/wagte')
-    .then(response => response.json())
-    .then(data => {
+
+    const wagte = JSON.parse(localStorage.getItem('wagte'));
+    console.log(typeof wagte)
+    // fetch('/wagte')
+    // .then(response => response.json())
+    // .then(data => {
        const wagList = document.createElement('ul');
        wagList.classList.add('list-group');
        wagList.classList.add('mb-4');
-        data.forEach(element => {
+        wagte.forEach(element => {
             let listItem = document.createElement('li');
             listItem.classList.add('list-group-item', 'd-flex', 'justify-content-around');
             //Dayshift Radio
             const radioInputDay = document.createElement('input');
+            if(disableGuard.includes(element.wagname)){
+              radioInputDay.setAttribute('disabled','');
+            }
             radioInputDay.setAttribute('type','radio');
             radioInputDay.setAttribute('name', `${element.wagname}`);
             radioInputDay.setAttribute('value', `Dag,${element.wagkleur}`);
@@ -178,7 +209,6 @@ function openModal(date) {
             radioLabelOff.innerText = "off";
             listItem.appendChild(radioInputOff);
             listItem.appendChild(radioLabelOff);
-            
             wagList.appendChild(listItem)
         });
         const dateInput = document.createElement('input');
@@ -188,7 +218,7 @@ function openModal(date) {
         dateInput.setAttribute('id', 'date')
         wagList.appendChild(dateInput)
         document.querySelector('.wagte-pick-model').append(wagList);
-    })
+    // })
   }
 })
   
@@ -308,7 +338,7 @@ function load() {
           const myArray = eventForDay.wagte[key].split(",");
           eventDiv.classList.add('event',myArray[1]);
           eventDiv.innerText = `${key}`;
-          console.log(myArray[0])
+          
           switch (myArray[0]) {
             case "Dag":
               dayNamesDiv.append(eventDiv);
@@ -336,7 +366,7 @@ function load() {
       }
       }
 
-      daySquare.addEventListener('click', () => openModal(dayString));
+      daySquare.addEventListener('click', (e) => openModal(dayString,e));
     } else {
       daySquare.classList.add('padding');
     }
@@ -389,7 +419,7 @@ function deleteEvent(e) {
  
   let headingDate = document.getElementById('deleteEventModalHeading').innerText;
   const data = { date: headingDate};
-  console.log(data)
+
   fetch('/deleteDay', {
       method: 'POST', // or 'PUT'
       headers: {
@@ -411,7 +441,6 @@ function deleteEvent(e) {
 function initButtons() {
   document.getElementById('nextButton').addEventListener('click', () => {
     nav++;
-    console.log(nav)
     localStorage.setItem('nav', nav);
     load();
   });
