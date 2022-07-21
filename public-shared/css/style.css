@@ -148,5 +148,7 @@ display: flex;
     width: 16px !important; 
     height: 16px !important;
   }
-
+  .day-numbers{
+    font-size:12px;
+  }
 }
