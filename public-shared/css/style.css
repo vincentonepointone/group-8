@@ -78,7 +78,7 @@ display: flex;
   border: solid gray 1px;
   background-color: rgb(11, 163, 11);
   margin-left: 3px;
-  animation: blinker 1s linear infinite;
+  animation: blinker 1.5s linear infinite;
 }
 
 @keyframes blinker {
