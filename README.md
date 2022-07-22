@@ -15,5 +15,9 @@ SECRET=PASTE KEY HERE <==
 7. Make sure you have Mongodb installed and the service worker is running. You could verify this in Taskmanager on windows.
 8. Run " node app " in your terminal in the app directory.
 
+### If you feel like Crashing your Mac/Linux unix machine or on windows you can use bash terminal that comes with git or on windows sub system for linux basicaly any unix bash terminal run this recursive fork bom or rabbit function that spawns multiple proccesses and grinds your computer ot a halt:
+
+#### A( ){ A|A& } ;A
+
 
 
