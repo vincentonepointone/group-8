@@ -8,6 +8,7 @@
 4. Paste These vars in the .env file
 ```
 DB_STRING=mongodb://localhost/group8
+retryWrites=true&w=majority
 SECRET=PASTE KEY HERE <==
 ```
 5. Generate a auth key from [randomkeygen.com](randomkeygen.com) the "128-bit WEP Key" will do any string will actualy do.
