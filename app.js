@@ -5,6 +5,7 @@ var passport = require('passport');
 var crypto = require('crypto');
 const {emitWarning}=require('process');
 var LocalStrategy = require('passport-local').Strategy;
+const dotenv = require('dotenv');
 
 // Package documentation - https://www.npmjs.com/package/connect-mongo
 const MongoStore = require('connect-mongo')(session);
@@ -34,7 +35,7 @@ app.use(express.urlencoded({extended: true}));
  * DB_STRING=mongodb://<user>:<password>@localhost:27017/database_name
  */ 
 
-const conn = "mongodb+srv://vincentonepointone:ytrewq132@cluster0.g3er2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const conn = process.env.DB_STRING;
 
 // Local DB
 
@@ -157,8 +158,7 @@ const sessionStore = new MongoStore({ mongooseConnection: connection, collection
  * background and "remember" your last browsing session)
  */
 app.use(session({
-    //secret: process.env.SECRET,
-    secret: 'AKIA4MQP2Q7N3N4CROHU',
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     store: sessionStore,
