@@ -1,5 +1,5 @@
 # This is a Shift Management Web app for a securtiy company i'm working at.
-### [group8-rooster.herokuapp.com](https://www.group8-rooster.herokuapp.com )
+### [group8-rooster.herokuapp.com](https://group8-rooster.herokuapp.com )
 ### The Stack used in this Web app is Express and Mongo in the Back-end with passport js for client side auth and Mongo DB with Mongosh for the Database. For the Front-end I use Vanila JavaScript Bootsrap 5 and a Canvas js Dependancy to paint and download the HTML/CSS calander.
 
 ## Steps to run the app:
@@ -12,7 +12,7 @@ DB_STRING=mongodb://localhost/group8
 retryWrites=true&w=majority
 SECRET=PASTE KEY HERE <==
 ```
-5. Generate a auth key from [randomkeygen.com](randomkeygen.com) the "128-bit WEP Key" will do any string will actualy do.
+5. Generate a auth key from [randomkeygen.com](https://randomkeygen.com) the "128-bit WEP Key" will do any string will actualy do.
 6. Paste yoor secret key next to the SECRET env var.
 7. Make sure you have Mongodb installed and the service worker is running. You could verify this in Taskmanager on windows.
 8. Run " node app " in your terminal in the app directory.
