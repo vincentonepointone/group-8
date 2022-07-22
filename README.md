@@ -4,7 +4,7 @@
 ## Steps to run the app:
 1. Clone the repository.
 2. Install all the Dev Dependansies with " npm install " in a Terminall ps. Make sure you are in the right Directory.
-3. Make a new file with the named .env in the root directory.
+3. Make a new file with named .env in the root directory.
 4. Paste These vars in the .env file
 ```
 DB_STRING=mongodb://localhost/group8
