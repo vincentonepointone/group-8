@@ -1,5 +1,5 @@
 # This is a Shift Management Web app for a securtiy company i'm working at.
-### [group8-rooster.herokuapp.com](group8-rooster.herokuapp.com )
+### [group8-rooster.herokuapp.com](https://www.group8-rooster.herokuapp.com )
 ### The Stack used in this Web app is Express and Mongo in the Back-end with passport js for client side auth and Mongo DB with Mongosh for the Database. For the Front-end I use Vanila JavaScript Bootsrap 5 and a Canvas js Dependancy to paint and download the HTML/CSS calander.
 
 ## Steps to run the app:
