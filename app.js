@@ -35,11 +35,11 @@ app.use(express.urlencoded({extended: true}));
  * DB_STRING=mongodb://<user>:<password>@localhost:27017/database_name
  */ 
 
-// const conn = process.env.DB_STRING;
+const conn = process.env.DB_STRING;
 
 // Local DB
 
-const conn = "mongodb://localhost/group8";
+// const conn = "mongodb://localhost/group8";
 
 const connection = mongoose.createConnection(conn, {
     useNewUrlParser: true,
