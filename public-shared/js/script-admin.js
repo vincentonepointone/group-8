@@ -66,8 +66,6 @@ function loadWagteList() {
 }
 loadWagteList();
 
-
-//Adding Wagte Upload From spa modding 
 addWagButton.addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -109,8 +107,6 @@ function getWagte(){
   fetch('/wagte')
     .then(response => response.json())
     .then(data => {
-
-      console.log(data,'getwagfunction')
       localStorage.setItem('wagte', JSON. stringify(data))
     })
 }
@@ -118,14 +114,12 @@ function getWagte(){
 getWagte();
 
 function openModal(date,e,el) {
-  console.log(e.target.previousSibling)
   clicked = date;
   // const eventForDay = events.find(e => e.date === clicked);
   fetch('/getDays')
   .then(response => response.json())
   .then(data => {
     var shifts = data;
-    console.log(clicked)
     const eventForDay = shifts.find(e => e.date === clicked);
     
     const clickedDayArray = clicked.split("/");
@@ -152,10 +146,6 @@ function openModal(date,e,el) {
     newEventModal.style.display = 'block';
 
     const wagte = JSON.parse(localStorage.getItem('wagte'));
-    console.log(typeof wagte)
-    // fetch('/wagte')
-    // .then(response => response.json())
-    // .then(data => {
        const wagList = document.createElement('ul');
        wagList.classList.add('list-group');
        wagList.classList.add('mb-4');
@@ -218,13 +208,8 @@ function openModal(date,e,el) {
         dateInput.setAttribute('id', 'date')
         wagList.appendChild(dateInput)
         document.querySelector('.wagte-pick-model').append(wagList);
-    // })
   }
 })
-  
-  
-
-
   backDrop.style.display = 'block';
 }
 
@@ -333,10 +318,16 @@ function load() {
         for (let key in eventForDay.wagte) {
           const eventParent = document.createElement('div');
           eventParent.classList.add('eventParent');
-
           const eventDiv = document.createElement('div');
           const myArray = eventForDay.wagte[key].split(",");
-          eventDiv.classList.add('event',myArray[1]);
+          if(myArray[1] == "bg-dark text-light"){
+
+            const darkArray = myArray[1].split(" ");
+              eventDiv.classList.add('event', darkArray[0],darkArray[1])
+          } else {
+            eventDiv.classList.add('event',myArray[1]); 
+          }
+          
           eventDiv.innerText = `${key}`;
           
           switch (myArray[0]) {
@@ -388,31 +379,31 @@ function closeModal() {
 }
 
 function saveEvent() {
-
-  fetch('/wagte')
-  .then(response => response.json())
-  .then(data => {
-     const wagList = document.createElement('ul');
-     wagList.classList.add('list-group');
-     wagList.classList.add('mb-4');
-      data.forEach(element => {
-
-      });
-      document.querySelector('.wagte-pick-model').append(wagList);
-  })
-  if (eventTitleInput.value) {
-    eventTitleInput.classList.remove('error');
-
-    events.push({
-      date: clicked,
-      title: eventTitleInput.value,
-    });
-
-    localStorage.setItem('events', JSON.stringify(events));
-    closeModal();
-  } else {
-    eventTitleInput.classList.add('error');
+  const wagRadios = document.querySelectorAll('input[type=radio]')
+  var checkedRadio = Array.from(wagRadios).filter(checkedRadio)
+  function checkedRadio(radio) {
+    return radio.checked == true;
   }
+  let obj = {}
+  console.log(checkedRadio[0].name)
+  checkedRadio.forEach(element => {
+    console.log(element.name) 
+    obj[element.name] = element.value;
+   
+  });
+
+    const data = {
+      date: document.getElementById('newEventModalHeading').innerText,
+      wagte: obj
+    }
+  fetch('/newDay', {
+    method: 'POST', // or 'PUT'
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+  closeModal();
 }
 
 function deleteEvent(e) {
@@ -427,7 +418,7 @@ function deleteEvent(e) {
       },
       body: JSON.stringify(data),
     })
-    .then(response => response.json())
+    .then(response => response)
     .then(data => {
       console.log('Success:', data);
     })

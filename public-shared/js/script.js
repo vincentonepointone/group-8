@@ -115,7 +115,13 @@ function load() {
 
           const eventDiv = document.createElement('div');
           const myArray = eventForDay.wagte[key].split(",");
-          eventDiv.classList.add('event',myArray[1]);
+          if(myArray[1] == "bg-dark text-light"){
+
+            const darkArray = myArray[1].split(" ");
+              eventDiv.classList.add('event', darkArray[0],darkArray[1])
+          } else {
+            eventDiv.classList.add('event',myArray[1]); 
+          }
           eventDiv.innerText = `${key}`;
           switch (myArray[0]) {
             case "Dag":
