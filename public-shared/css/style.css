@@ -75,8 +75,7 @@ display: flex;
   -moz-border-radius: 7.5px;
   -webkit-border-radius: 7.5px;
   border-radius: 7.5px;
-  border: solid gray 1px;
-  background-color: rgb(11, 163, 11);
+  background-color: rgb(22, 206, 22);
   margin-left: 3px;
   animation: blinker 1.5s linear infinite;
 }
