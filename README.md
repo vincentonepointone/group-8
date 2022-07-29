@@ -14,7 +14,7 @@ SECRET=PASTE KEY HERE <==
 ```
 5. Generate a auth key from [randomkeygen.com](https://randomkeygen.com) the "128-bit WEP Key" will do any string will actualy do.
 6. Paste yoor secret key next to the SECRET env var.
-7. Make sure you have Mongodb installed and the service worker is running. You could verify this in Taskmanager on windows.
+7. Make sure you have Mongodb installed and the proccess is running. You could verify this in Taskmanager on windows.
 8. Run " node app " in your terminal in the app directory.
 
 ### If you feel like Crashing your Mac/Linux unix machine or on windows you can use bash terminal that comes with git or on windows sub system for linux basicaly any unix bash terminal run this recursive fork bom or rabbit function that spawns multiple proccesses and grinds your computer to a halt:
