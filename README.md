@@ -5,7 +5,7 @@
 #### Here is the boilerplate and some resources and code I used to kick start the app: 
 - Vanila Calander: https://github.com/portexe/VanillaCalendar / Youtube: [https://www.youtube.com/watch?v=m9OSBJaQTlM&t=311s](https://www.youtube.com/watch?v=m9OSBJaQTlM&t=311s)
 - User Authentication Youtube:  [https://www.youtube.com/watch?v=F-sFp_AvHc8&t=13379s](https://www.youtube.com/watch?v=F-sFp_AvHc8&t=13379s)
-- Styling [bootsrap.com](bootsrap.com)
+- Styling [bootsrap.com](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
 - General Dev Skills: [https://www.youtube.com/c/TraversyMedia](https://www.youtube.com/c/TraversyMedia)
 
 ## Steps to run the app:
