@@ -148,7 +148,7 @@ function openModal(date,e,el) {
     const wagte = JSON.parse(localStorage.getItem('wagte'));
        const wagList = document.createElement('ul');
        wagList.classList.add('list-group');
-       wagList.classList.add('mb-4');
+       wagList.classList.add('mb-1');
         wagte.forEach(element => {
             let listItem = document.createElement('li');
             listItem.classList.add('list-group-item', 'd-flex', 'justify-content-around');
@@ -164,7 +164,7 @@ function openModal(date,e,el) {
             radioInputDay.classList.add('btn-check');
             radioInputDay.setAttribute('id', `${element.wagname}-dag`);
             const radioLabelDay = document.createElement('label');
-            radioLabelDay.classList.add('btn', 'btn-outline-warning');
+            radioLabelDay.classList.add('btn', 'btn-outline-warning', 'btn-sm');
             radioLabelDay.setAttribute('for', `${element.wagname}-dag`);
             radioLabelDay.innerText = "Dag";
             listItem.innerText = element.wagname;
@@ -179,7 +179,7 @@ function openModal(date,e,el) {
             radioInput.classList.add('btn-check');
             radioInput.setAttribute('id', `${element.wagname}-nag`);
             const radioLabel = document.createElement('label');
-            radioLabel.classList.add('btn', 'btn-outline-dark');
+            radioLabel.classList.add('btn', 'btn-outline-dark', 'btn-sm');
             radioLabel.setAttribute('for', `${element.wagname}-nag`);
             radioLabel.innerText = "Nag";
             listItem.appendChild(radioInput);
@@ -194,19 +194,13 @@ function openModal(date,e,el) {
             radioInputOff.classList.add('btn-check');
             radioInputOff.setAttribute('id', `${element.wagname}-off`);
             const radioLabelOff = document.createElement('label');
-            radioLabelOff.classList.add('btn', 'btn-outline-primary');
+            radioLabelOff.classList.add('btn', 'btn-outline-primary', 'btn-sm');
             radioLabelOff.setAttribute('for', `${element.wagname}-off`);
             radioLabelOff.innerText = "off";
             listItem.appendChild(radioInputOff);
             listItem.appendChild(radioLabelOff);
             wagList.appendChild(listItem)
         });
-        const dateInput = document.createElement('input');
-        dateInput.setAttribute('value', date)
-        dateInput.setAttribute('name', 'date');
-        dateInput.setAttribute('type', 'text');
-        dateInput.setAttribute('id', 'date')
-        wagList.appendChild(dateInput)
         document.querySelector('.wagte-pick-model').append(wagList);
   }
 })
