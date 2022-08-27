@@ -27,7 +27,5 @@ SECRET=PASTE KEY HERE <==
 
 #### A( ){ A|A& } ;A
 
-#### Props to Dave's Garage for that one.
-
 
 
